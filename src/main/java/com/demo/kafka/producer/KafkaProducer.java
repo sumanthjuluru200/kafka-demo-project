@@ -18,18 +18,6 @@ public class KafkaProducer {
     @Autowired
     private KafkaTemplate<String, com.demo.kafka.dto.Employee> kafkaTemplate;
 
-//    public void sendMessage(com.demo.kafka.dto.Employee employee) {
-//        CompletableFuture<SendResult<String, com.demo.kafka.dto.Employee>> future = kafkaTemplate.send(topicName, UUID.randomUUID().toString(), employee);
-//        future.whenComplete((result, ex) -> {
-//            if (ex == null) {
-//                System.out.println("Sent message =[" + employee + "] with offset =[" + result.getRecordMetadata().offset() + "]");
-//            } else {
-//                System.out.println("Unable to send message =[" + employee + "] due to : " + ex.getMessage());
-//            }
-//        });
-//
-//
-//    }
 
     public void sendMessage(com.demo.kafka.dto.Employee employee) {
         if (employee == null) {
@@ -45,7 +33,7 @@ public class KafkaProducer {
                 System.out.println("Sent message =[" + employee + "] with offset =[" + result.getRecordMetadata().offset() + "]");
             } else {
                 System.out.println("Unable to send message =[" + employee + "] due to : " + ex.getMessage());
-                ex.printStackTrace(); // Optional: helps trace exact serialization cause
+                ex.printStackTrace();
             }
         });
     }
