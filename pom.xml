@@ -28,6 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>24</java.version>
+		<confluent.version>7.3.0</confluent.version>
 	</properties>
 
 	<repositories>
@@ -67,14 +68,14 @@
 		<dependency>
 			<groupId>io.confluent</groupId>
 			<artifactId>kafka-schema-registry-client</artifactId>
-			<version>8.0.0</version>
+			<version>${confluent.version}</version>
 		</dependency>
 
 
 		<dependency>
 			<groupId>io.confluent</groupId>
 			<artifactId>kafka-avro-serializer</artifactId>
-			<version>8.0.0</version>
+			<version>${confluent.version}</version>
 		</dependency>
 
 
