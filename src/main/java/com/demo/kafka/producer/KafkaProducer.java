@@ -1,5 +1,6 @@
 package com.demo.kafka.producer;
 
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -13,6 +14,7 @@ import java.util.concurrent.CompletableFuture;
 public class KafkaProducer {
 
     @Value("${topic.name}")
+    @Setter
     private String topicName;
 
     @Autowired
