@@ -1,5 +1,10 @@
+#topic:
+#  name: kafka-demo-topic
+
 topic:
-  name: kafka-demo-topic
+  name:
+    employee: kafka-demo-topic
+    student: student-demo-topic
 
 
 server:

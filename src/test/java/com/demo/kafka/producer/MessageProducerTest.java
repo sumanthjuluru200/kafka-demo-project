@@ -1,6 +1,6 @@
 package com.demo.kafka.producer;
 
-import com.demo.kafka.dto.Employee;
+import com.demo.kafka.Employee;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -9,13 +9,25 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class KafkaConfig {
 
-    @Value("${topic.name}")
-    private String topicName;
+    @Value("${topic.name.employee}")
+    private String employeeTopicName;
+
+    @Value("${topic.name.student}")
+    private String studentTopicName;
 
 
     @Bean
     public NewTopic CreateEmployeeTopic(){
-        return TopicBuilder.name(topicName)
+        return TopicBuilder.name(employeeTopicName)
+                .partitions(3)
+                .replicas(1)
+                .build();
+    }
+
+
+    @Bean
+    public NewTopic createStudentTopic(){
+        return TopicBuilder.name(studentTopicName)
                 .partitions(3)
                 .replicas(1)
                 .build();

@@ -1,5 +1,6 @@
 package com.demo.kafka.producer;
 
+import com.demo.kafka.Employee;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,21 +14,21 @@ import java.util.concurrent.CompletableFuture;
 @Service
 public class KafkaProducer {
 
-    @Value("${topic.name}")
+    @Value("${topic.name.employee}")
     @Setter
     private String topicName;
 
     @Autowired
-    private KafkaTemplate<String, com.demo.kafka.dto.Employee> kafkaTemplate;
+    private KafkaTemplate<String, Employee> kafkaTemplate;
 
 
-    public void sendMessage(com.demo.kafka.dto.Employee employee) {
+    public void sendMessage(Employee employee) {
         if (employee == null) {
             System.err.println("Cannot send null employee to Kafka");
             return;
         }
 
-        CompletableFuture<SendResult<String, com.demo.kafka.dto.Employee>> future =
+        CompletableFuture<SendResult<String, Employee>> future =
                 kafkaTemplate.send(topicName, UUID.randomUUID().toString(), employee);
 
         future.whenComplete((result, ex) -> {

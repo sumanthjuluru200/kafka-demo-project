@@ -1,7 +1,7 @@
 {
   "namespace": "com.demo.kafka",
   "type": "record",
-  "name": "Employee",
+  "name": "Student",
   "fields": [
     {
       "name": "id",
@@ -44,6 +44,36 @@
       "type": [
         "null",
         "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "schoolAddress",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "Address",
+          "namespace": "com.demo.kafka.dto.lookup",
+          "fields": [
+            {
+              "name": "street",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "city",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            }
+          ]
+        }
       ],
       "default": null
     }
